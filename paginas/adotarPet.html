@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adotar Pet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1em;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #333;
+      color: white;
+    }
+
+    a {
+      display: block;
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ADOTAR PET</h1>
+  </header>
+  
+  <main>
+    <form action="/adotarPet" method="post">
+      <label for="interessado">Interessado:</label>
+      <select name="interessado" required>
+        <!-- Lógica para gerar as options com os interessados -->
+        ${listaUsuario.map(usuario => `<option value="${usuario}">${usuario}</option>`).join('')}
+      </select>
+
+      <label for="pet">Pet:</label>
+      <select name="pet" required>
+        <!-- Lógica para gerar as options com os pets -->
+        ${listaPets.map(pet => `<option value="${pet.nome}">${pet.nome}</option>`).join('')}
+      </select>
+
+      <button type="submit">Adotar</button>
+    </form>
+
+    <!-- Tabela de Adoções -->
+    <table>
+      <thead>
+        <tr>
+          <th>Interessado</th>
+          <th>Pet</th>
+          <th>Data de Adoção</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${listaAdocao.map(adocao => `
+          <tr>
+            <td>${adocao.interessado}</td>
+            <td>${adocao.pet}</td>
+            <td>${adocao.dataAdocao}</td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+
+    <!-- Botão para voltar ao menu -->
+    <a href="/">Voltar para o Menu</a>
+  </main>
+</body>
+</html>

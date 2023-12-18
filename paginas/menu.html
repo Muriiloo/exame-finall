@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu do Sistema</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: space-around;
+      background-color: #eee;
+      border-radius: 5px;
+      padding: 10px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s ease-in-out;
+    }
+
+    a:hover {
+      color: #007BFF;
+    }
+
+    p {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>MENU</h1>
+  </header>
+  
+  <main>
+    <div>
+      <ul>
+        <li><a href="paginas/cadastrarUsuario.html">Cadastrar Usuário</a></li>
+        <li><a href="paginas/cadastrarPet.html">Cadastrar Pet</a></li>
+        <li><a href="paginas/adotarPet.html">Adotar Pet</a></li>
+      </ul>
+
+      <p id="ultimoAcesso">O último acesso foi <span id="dataUltimoAcesso"></span>.</p>
+
+      <script>
+        // Lógica para obter e exibir o último acesso
+        const dataUltimoAcesso = document.getElementById('dataUltimoAcesso');
+        // Exemplo de formato da data: '31/12/2022 15:30:00'
+        const ultimoAcesso = '31/12/2022 15:30:00';
+        
+        // Formate a data usando a biblioteca date-fns ou outra de sua escolha
+        const formattedUltimoAcesso = ultimoAcesso.toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' });
+
+        // Exiba a data formatada
+        dataUltimoAcesso.textContent = formattedUltimoAcesso;
+      </script>
+    </div>
+  </main>
+</body>
+</html>

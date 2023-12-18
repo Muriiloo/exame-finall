@@ -1,0 +1,31 @@
+<!-- paginas/cadastrarPet.html -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastrar Pet</title>
+  <link rel="stylesheet" href="style.css"> <!-- Certifique-se de ter um arquivo style.css para estilizar a página -->
+</head>
+<body>
+  <header>
+    <h1>CADASTRAR PET</h1>
+  </header>
+
+  <main>
+    <form action="/cadastrarPet" method="post">
+      <label for="nome">Nome do Pet:</label>
+      <input type="text" id="nome" name="nome" required>
+
+      <label for="raca">Raça do Pet:</label>
+      <input type="text" id="raca" name="raca" required>
+
+      <label for="idade">Idade do Pet:</label>
+      <input type="text" id="idade" name="idade" required>
+
+      <button type="submit">Cadastrar</button>
+    </form>
+  </main>
+</body>
+</html>

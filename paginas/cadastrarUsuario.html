@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastrar Usuário</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1em;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+
+    label {
+      margin-bottom: 8px;
+    }
+
+    input {
+      padding: 8px;
+      margin-bottom: 16px;
+    }
+
+    button {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    .menu-button {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CADASTRAR USUÁRIO</h1>
+  </header>
+
+  <main>
+    <form action="/cadastrarUsuario" method="post">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
+
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="telefone">Telefone:</label>
+      <input type="tel" id="telefone" name="telefone" required>
+
+      <button type="submit">Cadastrar</button>
+    </form>
+
+    <!-- Tabela de Usuários -->
+    <table id="tabelaUsuarios">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>E-mail</th>
+          <th>Telefone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Os usuários cadastrados serão exibidos aqui dinamicamente -->
+      </tbody>
+    </table>
+
+    <!-- Botão para voltar para o menu -->
+    <a href="/">Voltar para o Menu</a>
+  </main>
+
+  <script>
+    // Adicionei um script para preencher dinamicamente a tabela com os usuários cadastrados
+    const tabelaUsuarios = document.getElementById('tabelaUsuarios');
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const nome = document.getElementById('nome').value;
+      const email = document.getElementById('email').value;
+      const telefone = document.getElementById('telefone').value;
+
+      // Adiciona uma nova linha à tabela com os dados do usuário cadastrado
+      const newRow = tabelaUsuarios.insertRow(-1);
+      const cell1 = newRow.insertCell(0);
+      const cell2 = newRow.insertCell(1);
+      const cell3 = newRow.insertCell(2);
+
+      cell1.innerHTML = nome;
+      cell2.innerHTML = email;
+      cell3.innerHTML = telefone;
+
+      // Limpa os campos do formulário após o cadastro
+      form.reset();
+    });
+  </script>
+</body>
+</html>
